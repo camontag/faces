@@ -13,7 +13,7 @@
 % recognition:
 
 targetSize = [128,128];
-k=60;                                   % Number of features to consider
+k=30;                                   % Number of features to consider
 location = fullfile('lfw');
 
 disp('Creating image datastore...');
@@ -49,6 +49,7 @@ persons = {'Angelina_Jolie', 'Eduardo_Duhalde', 'Amelie_Mauresmo', 'Abdullah_Gul
     'Saddam_Hussein', 'Salma_Hayek', 'Serena_Williams', 'Sergey_Lavrov', 'Silvio_Berlusconi', ...
     'Spencer_Abraham', 'Taha_Yassin_Ramadan', 'Tang_Jiaxuan', 'Tiger_Woods'};
 
+persons = categorical(persons);
 [lia, locb] = ismember(imds0.Labels, persons);
 imds = subset(imds0, lia);
 
@@ -141,10 +142,10 @@ zlabel('x6');
 
 % ROC = receiver operating characteristic
 % See https://en.wikipedia.org/wiki/Receiver_operating_characteristic
-disp('Plotting ROC metrics...');
-rm = rocmetrics(imds.Labels, Score, persons);
-nexttile(t);
-plot(rm);
+% disp('Plotting ROC metrics...');
+% rm = rocmetrics(imds.Labels, Score, persons);
+% nexttile(t);
+% plot(rm);
 
 disp('Plotting confusion matrix...')
 nexttile(t);
