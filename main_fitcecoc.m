@@ -48,7 +48,7 @@ persons = {'Angelina_Jolie', 'Eduardo_Duhalde', 'Amelie_Mauresmo', 'Abdullah_Gul
     'Richard_Myers', 'Roger_Federer', 'Roh_Moo-hyun', 'Rubens_Barrichello', 'Rudolph_Giuliani', ...
     'Saddam_Hussein', 'Salma_Hayek', 'Serena_Williams', 'Sergey_Lavrov', 'Silvio_Berlusconi', ...
     'Spencer_Abraham', 'Taha_Yassin_Ramadan', 'Tang_Jiaxuan', 'Tiger_Woods'};
-
+persons = persons.';
 persons = categorical(persons);
 [lia, locb] = ismember(imds0.Labels, persons);
 imds = subset(imds0, lia);
