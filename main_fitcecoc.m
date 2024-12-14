@@ -13,7 +13,7 @@
 % recognition:
 
 targetSize = [128,128];
-k=30;                                   % Number of features to consider
+k=60;                                   % Number of features to consider
 location = fullfile('lfw');
 
 disp('Creating image datastore...');
@@ -119,23 +119,23 @@ tic;
 % 'OptimizeHyperparameters','all',...
 
 Mdl = fitcecoc(X, Y,'Verbose', 2,'Learners','svm',...
-               'Options',options);
+               'Options',options, 'OptimizeHyperparameters','all');
 toc;
 
 % Generate a plot in feature space using top two features
-nexttile(t);
-scatter3(X(:,1),X(:,2),X(:,3),50,c);
-title('A top 3-predictor plot');
-xlabel('x1');
-ylabel('x2');
-zlabel('x3');
-
-nexttile(t);
-scatter3(X(:,4),X(:,5),X(:,6),50,c);
-title('A next 3-predictor plot');
-xlabel('x4');
-ylabel('x5');
-zlabel('x6');
+% nexttile(t);
+% scatter3(X(:,1),X(:,2),X(:,3),50,c);
+% title('A top 3-predictor plot');
+% xlabel('x1');
+% ylabel('x2');
+% zlabel('x3');
+% 
+% nexttile(t);
+% scatter3(X(:,4),X(:,5),X(:,6),50,c);
+% title('A next 3-predictor plot');
+% xlabel('x4');
+% ylabel('x5');
+% zlabel('x6');
 
 %[YPred,Score] = predict(Mdl,X);
 [YPred,Score,Cost] = resubPredict(Mdl);
